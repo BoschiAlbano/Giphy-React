@@ -1,38 +1,68 @@
+:root {
+  --fz: 16px;
+  --theme--contrast-0: #121212;
+  --theme-body-bg: #18061f;
+  --theme-body-txt: #f3f3f3;
+  --search-size-mx-h: 3rem;
+  --zIndex-header: 20;
+  --zIndex-component: 5;
+  --brand-color_1: #00ff99;
+  --brand-color_2: #00ccff;
+  --brand-color_3: #9933ff;
+  --brand-color_4: tomato;
+  --brand-color_5: #fff35c;
+  --brand-color_6: #8429de;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: var(--fz);
+  background-color: var(--theme-body-bg);
+  color: var(--theme-body-txt);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+a {
+  color: #09f;
+  font-size: 32px;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* -------------------- rf-layout  - Component / header */
+.o-header {
+  background-color: inherit;
+  position: sticky;
+  top: 0;
+  z-index: var(--zIndex-header);
+  max-height: var(--search-size-mx-h);
+}
+
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

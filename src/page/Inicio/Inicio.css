@@ -1,0 +1,55 @@
+.busqueda{
+    height: auto;
+    width: 270px;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.2);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.Formulario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    background: rgb(66, 198, 202);
+    width: 70px;
+    height: 30px;
+    font-weight: bold;
+    border: 0ch;
+    cursor: pointer;
+}
+.Formulario input{
+    height: 30px;
+    width: 200px;
+}
+
+.UltimaBusqueda{
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));/*No Funciona en otro navegador Auto-fit*/
+    font-size: calc(10px + 2vmin);
+    grid-template-rows: masonry;/*fire Fox*/
+    margin-bottom: 20px;
+    min-height: 100vh;
+}
+
+#Link{
+    color: rgb(35, 116, 182);
+    font-size: 20px;
+}
+
+#siguiente{
+
+    margin: 10px 20px;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+}
+@media (width <= 500px){
+
+}
+
+

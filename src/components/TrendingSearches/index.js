@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';//rsf
 import './TreandingSearch.css'
-import useNerScreen from 'Hook/useNerScreen'
-import Spinner from 'components/Spinner/index';
+import useNerScreen from '../../Hook/useNerScreen'
+import Spinner from '../../components/Spinner/index';
 import { Link } from 'wouter';
 
 // Cargar un componente de forma dinamica solo cuando lo necesitemos en la app.

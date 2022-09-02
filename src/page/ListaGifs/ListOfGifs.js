@@ -1,18 +1,18 @@
 import React, {useEffect, useCallback} from 'react'
-import useNerScreen from 'Hook/useNerScreen';
+import useNerScreen from '../../Hook/useNerScreen';
 import debounce from 'just-debounce-it'
-
+import { useLocation } from 'wouter';
 import Gif from "../../components/Gif/Gif"
 import "./ListOfGifs.css"
 
 import { useGifs } from '../../Hook/UltimoGif'
-import Spinner from 'components/Spinner';
+import Spinner from '../../components/Spinner/index';
 
 export default function ListOfGifs({params}){
-    const {keyword} = params
-
+    const [path, pushLocation] = useLocation();
+    const {keyword, limit} = params
     // Usando customHook
-    const {gifs, setPage, loading} = useGifs({keyword})
+    const {gifs, setPage, loading} = useGifs({keyword},{limit})
 
     // hook
     const {isNearScreen, elementRef} = useNerScreen({distance: '10px', once: false})
@@ -29,17 +29,25 @@ export default function ListOfGifs({params}){
         if(isNearScreen) debounceHandle();
     }, [debounceHandle, isNearScreen])
 
+    const detalle = (id) => 
+    {
+        //console.log(id)
+        pushLocation(`/detalle/${id}`);
+    }
+
     return (
-        <>
-            <h1>Resultados de Busqueda</h1>
+        <div>
             <div className='Contenedor'>
                 {
                     gifs.map(({id, title, url}) => 
-                        <Gif
-                        key={id} 
-                        title={title} 
-                        url={url} 
-                        id={id}/>)
+                        <div className='divGif' key={id} onClick={() => detalle(id)}>
+                            <Gif
+                            key={id} 
+                            title={title} 
+                            url={url} 
+                            id={id}/>
+                        </div>
+                        )
                     }
             </div>
             <div ref={elementRef}>
@@ -47,7 +55,7 @@ export default function ListOfGifs({params}){
             </div>
             
             
-        </>
+        </div>
         
     )
 }

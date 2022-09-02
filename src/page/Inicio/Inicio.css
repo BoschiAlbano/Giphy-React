@@ -1,3 +1,40 @@
+.titulo{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    background: rgb(24, 24, 26);
+    width: 100%;
+    gap: 5%;
+}
+
+.titulo img{
+    width: 20%;
+}
+
+.titulo h1{
+
+    text-align: center;
+    background: transparent;
+}
+
+#card {
+    position: relative;
+    margin: 10px 0px;
+    background-color: rgb(24, 24, 26);
+    transition: box-shadow .25s;
+    border-radius: 2px;
+    width: 100%;
+    height: 100%;
+}
+#card h3{
+    font-size: 1fr;
+}
+
+#col{
+    margin-top: 10px;
+    padding-right: 0px;
+}
 .busqueda{
     height: auto;
     width: 270px;
@@ -13,14 +50,7 @@
     align-items: center;
     justify-content: center;
 }
-button{
-    background: rgb(66, 198, 202);
-    width: 70px;
-    height: 30px;
-    font-weight: bold;
-    border: 0ch;
-    cursor: pointer;
-}
+
 .Formulario input{
     height: 30px;
     width: 200px;
@@ -52,4 +82,14 @@ button{
 
 }
 
-
+.btn{
+    margin: 0px 10px
+}
+.autocomplete{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#autocomplete-input{
+    font-size: 20px;
+    padding: 0px;
+}

@@ -1,25 +1,12 @@
 import react from 'react'
-import {useLocation} from 'wouter';
 import './Gif.css'
 
 function Gif ({title, id, url})
 {
-
-    const [path, pushLocation] = useLocation();
-
-    const detalle = () => 
-    {
-        pushLocation(`/gif/detalle/${id}`);
-    }
-
     return(
-        <div className='Gif' onClick={detalle}>
-
-            <div className='detalle'>
-            </div>
-
+        <div className='Gif' >        
+            <div className='detalle'>detalle</div>
             <img alt={title} src={url}/>
-
             <div className='Titulo'>
                 <p>{title}</p>
             </div>

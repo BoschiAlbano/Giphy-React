@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';//rsf
-import getTrendingTerms from "services/getTrending"
-import Tendencia from 'components/TrendingSearches/Tendencia/index'
+import getTrendingTerms from "../../services/getTrending"
+import Tendencia from '../../components/TrendingSearches/Tendencia/index'
 
 export default function TrendingSearches() {
 

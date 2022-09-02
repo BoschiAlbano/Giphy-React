@@ -1,6 +1,6 @@
 const ApiKey = 'OvaklIMhz6vPRzjlJVj232acCC0pyPcG&q';
 
-export default function getGifs({limit = 20,  keyword = 'random', page = 0} = {})
+export default function getGifs({limit = 10,  keyword = 'random', page = 0} = {})
 {
     const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${ApiKey}=${keyword}&limit=${limit}&offset=${page * limit}&rating=g&lang=en`
 

@@ -1,8 +1,8 @@
 import './App.css'
-import { Route } from 'wouter'
+import { Route, useLocation } from 'wouter'
 import React from 'react'
 
-import Detalle from 'page/DetalleGifs/detalle'
+import Detalle from './page/DetalleGifs/detalle'
 import Imagenes from './Curso/Css/Imagenes'
 import Inicio from './page/Inicio/Inicio';
 import ListOfGifs from './page/ListaGifs/ListOfGifs';
@@ -10,7 +10,16 @@ import ListOfGifs from './page/ListaGifs/ListOfGifs';
 import StaticContext from './Context/StaticContext';
 import {GifsContextprovider} from './Context/GifsContext';
 
+import 'materialize-css/dist/css/materialize.min.css'
+
 function App() {
+
+  const [path, setlocation] = useLocation()
+
+  const home = () => {
+    setlocation('http://localhost:3000/')
+  }
+
   return (
     <StaticContext.Provider value={
       {
@@ -21,7 +30,11 @@ function App() {
       <div className="App">
 
         <section className="App-content">
-
+          
+          <div className='titulo'>
+              <img className='logo' src='logo.gif' onClick={home}></img>
+              <h1>App buscador de Gifs</h1>
+          </div>
           <GifsContextprovider>
             <Route
                   component={Inicio}
@@ -30,12 +43,12 @@ function App() {
 
               <Route
                   component={ListOfGifs}
-                  path="/gif/:keyword" 
+                  path="/gif/:keyword/:limit" 
               />
 
               <Route
                   component={Detalle}
-                  path="/gif/detalle/:id" 
+                  path="/detalle/:id" 
               />
 
               <Route

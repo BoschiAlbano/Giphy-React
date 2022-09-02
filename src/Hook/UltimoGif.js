@@ -25,7 +25,7 @@ function PalabraClave (keyword) {
     return getKeyword
 }
 
-export function useGifs({keyword} = {keyword: null})
+export function useGifs({keyword} = {keyword: null}, {limit} = {limit: 10})
 {
     const {gifs, setgifs} = useContext(GifsContext)
     const [page , setPage] = useState(Initial_page)
@@ -37,7 +37,7 @@ export function useGifs({keyword} = {keyword: null})
         // Obtenemos la palabra clave
         var getKeyword = PalabraClave(keyword);
 
-        getGifs({keyword: getKeyword})
+        getGifs({keyword: getKeyword, limit})
         .then(Allgifs => {
             setgifs(Allgifs);
             setLoading(false)
@@ -55,13 +55,35 @@ export function useGifs({keyword} = {keyword: null})
             return;
         }
         
-        getGifs({keyword: getKeyword, page})
+        getGifs({keyword: getKeyword, page, limit})
         .then(result => {
             setgifs(anteriores => anteriores.concat(result))
             setLoading(false)
         })
     }, [keyword, page, setgifs])
 
+
+    return {gifs, setPage, loading}
+}
+
+const Initial_page_home = 0;
+
+export function useGifsHome({keyword} = {keyword: null}){
+
+    const [loading, setLoading] = useState(true);
+    const [page , setPage] = useState(Initial_page_home)
+    const {gifs, setgifs} = useContext(GifsContext)
+
+    useEffect(function(){
+
+        var getKeyword = PalabraClave(keyword);
+        
+        getGifs({keyword: getKeyword, page})
+        .then(result => {
+            setgifs(result)
+            setLoading(false)
+        })
+    }, [keyword, page, setgifs])
 
     return {gifs, setPage, loading}
 }

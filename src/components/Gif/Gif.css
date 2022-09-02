@@ -1,19 +1,16 @@
+/* Contenedor */
 .Gif
 {
+
     position: relative;
 
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 200px;
 
     border: 1px solid rgb(0, 0, 0);
     border-radius: 20px;
 
     box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.3);
-
-    display: grid;
-    grid-template-rows: 200px;
-    text-align: center;
-    justify-items: center;
 
     text-decoration: none;
 
@@ -23,6 +20,14 @@
     opacity: 1;
     cursor: pointer;
 }
+/* Imagen */
+img{
+    width: 100%;
+    height: 100%;
+}   
+
+
+/* Titulo */
 .Gif .Titulo{
 
     padding: 0px;
@@ -46,14 +51,17 @@
     color: rgb(0, 0, 0);
 }
 
-img{
-    width: 100%;
-    height: 100%;
-}
 
+/* Detalle */
 .detalle{
     position: absolute;
-    opacity: 1;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    -webkit-text-stroke: 1px red;
+    color: black;
 }
 
 .Gif:hover

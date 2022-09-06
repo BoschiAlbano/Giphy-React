@@ -17,7 +17,7 @@ function App() {
   const [path, setlocation] = useLocation()
 
   const home = () => {
-    setlocation('http://localhost:3000/')
+    setlocation('/')
   }
 
   return (

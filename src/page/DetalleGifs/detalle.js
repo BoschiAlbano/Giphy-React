@@ -1,20 +1,21 @@
 import React, {useEffect} from 'react'
 import './detalle.css'
-import useGlobalGifs from '../../Hook/UseGlobalGif'
 import M from 'materialize-css';
 import { useLocation } from 'wouter';
+import useSingleGif from 'Hook/useSingleGif';
+import Spinner from 'components/Spinner';
 
-export default function Detalle({params})
+function Detalle({params})
 {
-    const gifs = useGlobalGifs();
     const {id} = params
     const [path, setPatch] = useLocation();
-
+    const {gif,isloading} = useSingleGif({id});
+    
+    
     useEffect(function(){
         var elems = document.querySelectorAll('.materialboxed');
         var instances = M.Materialbox.init(elems, {});
-    }, [id])
-
+    }, [isloading])
 
     const Buscar = function(){
         const keyWord = localStorage.getItem('lastKeyword')
@@ -24,26 +25,29 @@ export default function Detalle({params})
         }})
     }
 
-    //Buscar el gif
-    const gif = gifs.find(gif => gif.id === id)
+
+    
     return(
         <center className="centrar">
-            <div className="card">
+            {isloading 
+            ? <Spinner/>
+            : <div className="card">
                     <div className="card-image">
-                        <img className="materialboxed" alt={gif.title} width="500" src={gif.url}></img>
+                        <img className="materialboxed" alt={gif.titulo} width="500" src={gif.url}></img>
                         
                         <a className="btn-floating halfway-fab waves-effect waves-light red">
                             <i className="material-icons" onClick={Buscar}>add</i>
                         </a>
                     </div>
                     <div className="card-content">
-                    <p>{gif.id}</p>
-                    <p>{gif.title}</p>
+                        <p>{gif.id}</p>
+                        <p>{gif.titulo}</p>
                     </div>
-            </div>
+                </div>}
 
         </center>
+        
     )
 }
 
-//export default React.memo(Detalle);
+export default React.memo(Detalle);

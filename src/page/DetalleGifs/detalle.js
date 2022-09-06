@@ -2,8 +2,8 @@ import React, {useEffect} from 'react'
 import './detalle.css'
 import M from 'materialize-css';
 import { useLocation } from 'wouter';
-import useSingleGif from 'Hook/useSingleGif';
-import Spinner from 'components/Spinner';
+import useSingleGif from '../../Hook/useSingleGif';
+import Spinner from '../../components/Spinner/index';
 
 function Detalle({params})
 {

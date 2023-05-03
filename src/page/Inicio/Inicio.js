@@ -65,13 +65,12 @@ export default function Inicio(){
                 </div>
             </div>
 
-            <div className="carousel carousel-slider">
+            <div className="carousel carousel-slider" id='slider'>
                 <a className="carousel-item"><img src="logo.gif"/></a>
-                <a className="carousel-item"><img src="img1.JPG"/></a>
-                <a className="carousel-item"><img src="img2.JPG"/></a>
-                <a className="carousel-item"><img src="img3.JPG"/></a>
+                <a className="carousel-item"><img src="img1.jpg"/></a>
+                <a className="carousel-item"><img src="img2.jpg"/></a>
+                <a className="carousel-item"><img src="img3.jpg"/></a>
             </div>
-
             
             <TrendingSearches></TrendingSearches>
         </div>
